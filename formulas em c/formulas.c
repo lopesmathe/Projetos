@@ -24,15 +24,24 @@ float divisao_conta();
 float resu_divisao(float x, float y);
 float mostrar_resutado_divisao(float r);
 
+void medias();
+
+void juros_simples();
+float juros_simples_conta();
+float resu_juros_simples(float x, float y, float h);
+float mostrar_resu_juros_simples(float r);
+
 float escolha_numeros();
 int main(){
     int escolha0;
     printf("ola, escolha qual formula vc vai querer\n");
     printf("1 = basicas\n");
+    printf("2 = medias\n");
     scanf("%d", &escolha0);
     switch (escolha0)
     {
     case 1: basicas(); break;
+    case 2: medias(); break;
     default: printf("informaçao invalida"); break;
     }
 }
@@ -141,4 +150,40 @@ float escolha_numeros(){
     printf("me fale um valor");
     scanf("%f", &x);
     return x;
+}
+
+void medias(){
+    int escolha2;
+    printf("escolha entre:\n");
+    printf("1 = juros simples");
+    scanf("%d", &escolha2);
+    switch (escolha2)
+    {
+    case 1: juros_simples(); break;
+    default:printf("isso nao  he uma opçao valida"); break;
+    }
+}
+
+void juros_simples(){
+    juros_simples_conta();
+}
+
+float juros_simples_conta(){
+    float j, c, i, t;
+    printf("C = Capital\n");
+    c = escolha_numeros();
+    printf("I = Taxa de juros\n");
+    i = escolha_numeros();
+    printf("T = Tempo de aplicaçao");
+    t = escolha_numeros();
+    j = resu_juros_simples(c, i, t);
+    mostrar_resu_juros_simples(j);
+}
+
+float resu_juros_simples(float x, float y, float h){
+   return x * y * h;
+}
+
+float mostrar_resu_juros_simples(float r){
+    printf("o valor do final do produto he %f", r);
 }
